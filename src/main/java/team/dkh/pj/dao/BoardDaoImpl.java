@@ -24,14 +24,14 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public  List<Map<String, Object>> selectBoardList() {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("boardMapper.selectBoardList");
+		return sqlSession.selectList("team.dkh.pj.dao.BoardDao.selectBoardList");
 	}
 	
 	@Override
 	public BoardVo selectBoard(int boardId) {	
 		// TODO Auto-generated method stub
 		System.out.println("adafad");
-		return sqlSession.selectOne("boardMapper.selectBoard", boardId);
+		return sqlSession.selectOne("team.dkh.pj.dao.BoardDao.selectBoard", boardId);
 	}
 
 	@Override
