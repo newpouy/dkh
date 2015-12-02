@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardMapper">
+<!-- <mapper namespace="team.dkh.pj.dao.BoardDao">    -->	
+	<resultMap type="team.dkh.pj.domain.BoardVo" id="boardResultMap">
+		<result property="boardId" column="boardId"/>
+		<result property="parentId" column="parentId"/>
+		<result property="writer" column="writer"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="regDate" column="regDate"/>
+	</resultMap>	
+	<select id="selectBoardList" resultMap="boardResultMap">
+		<![CDATA[
+			SELECT
+				boardId,
+				parentId,
+				writer,
+				title,
+				content,
+				regDate
+			FROM
+				board
+		]]>
+	</select>
+	
+	<select id="selectBoard" parameterType="int" resultMap="boardResultMap">
+		<![CDATA[
+			SELECT
+				boardId,
+				parentId,
+				writer,
+				title,
+				content,
+				regDate
+			FROM
+				board
+			WHERE
+				boardId = #{boardId}
+		]]>
+	</select>
+</mapper>
